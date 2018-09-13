@@ -11,10 +11,6 @@
 */
 class Solution {
     public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
-        if(intervals.size() == 0){
-            intervals.add(newInterval);
-            return intervals;
-        }
         int start = newInterval.start, end = newInterval.end, i = 0, newStart = 0, newEnd = 0;
         while(i < intervals.size()){
             if(start > intervals.get(i).end)
@@ -23,7 +19,10 @@ class Solution {
                 break;
         }
         // don't remove at this if-else because I don't change i if I remove here, it can't check the relationship between end           //and current Interval
-        if(i < intervals.size() && start > intervals.get(i).start){
+        if(i >= intervals.size()){
+            intervals.add(newInterval); // handle the case that newInterval is larger than any Interval in the intervals
+            return intervals;
+        }else if(i < intervals.size() && start > intervals.get(i).start){
             newStart = intervals.get(i).start;
         }else{
             newStart = start;
