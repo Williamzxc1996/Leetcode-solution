@@ -14,8 +14,8 @@
 
 /**
 * I use divide-conquer to solve this problem. Although I can use DP solution in accordance with 94, but it still has to involve with Recursion
-* because dp[n-i] is not the real value of the number, in 95 I only care about the number of BST, but in here the real value matters.
-* The gist is the same as 94.
+* because dp[n-i] is not the real value of the number, in 96 I only care about the number of BST, but in here the real value matters.
+* The gist is the same as 96.
 */
 
 class Solution {
