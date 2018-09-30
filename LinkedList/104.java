@@ -18,3 +18,23 @@ class Solution {
             return Math.max(maxSubDepth(node.left),maxSubDepth(node.right)) + 1;
     }
 }
+
+//BFS same as 102, traverse the whole tree, use levelSize to distingush different level, return level
+class Solution {
+    public int maxDepth(TreeNode root) {
+        if(root == null) return 0;
+        int level = 0;
+        Queue<TreeNode> queue = new LinkedList();
+        queue.add(root);
+        while(!queue.isEmpty()){
+            int levelSize = queue.size();
+            level++;
+            for(int i = 0; i < levelSize; i++){
+                TreeNode temp = queue.poll();
+                if(temp.left != null) queue.add(temp.left);
+                if(temp.right != null) queue.add(temp.right);
+            }
+        }
+        return level;
+    }
+}
