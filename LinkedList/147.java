@@ -7,6 +7,9 @@ Sort a linked list using insertion sort.
 If we are sorting nums[i] the insertion sort will go from index i-1 to 0 to find the right place. 
 However, we can using index to access linkedlist randomly, so I choose to go from head to the node before current node.
 That's why I use a p point to head, and each time I start at p.
+One thing need to be careful about is how to update head in the first-loop.
+Drawing a plot will help you understand, if we swap then you don't need to update head, because "head.next = head.next.next" in the "if".
+Otherwise, we need to update it as "head = head.next".
 */
 
 class Solution {
